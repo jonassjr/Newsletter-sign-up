@@ -18,6 +18,9 @@ export default {
       poppins: ['Poppins', 'sans-serif'],
   
     },
+    screens: {
+      xs:'320px'
+    }
   },
   plugins: [],
 }
