@@ -19,6 +19,10 @@
     ],
     "rules": {
         "react/react-in-jsx-scope": "off",
-        "comma-dangle": "off"
+        "comma-dangle": "off",
+        "import/no-extraneous-dependencies": [
+            "error",
+            {"Dependencies": true}
+        ]
     }
 }
