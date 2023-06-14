@@ -19,7 +19,8 @@ export default {
   
     },
     screens: {
-      xs:'320px'
+      xs:'320px',
+      md:'1024px'
     }
   },
   plugins: [],
