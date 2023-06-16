@@ -1,5 +1,6 @@
-import Input from './components/Input'
+import { useState } from 'react'
 
+import Input from './components/Input'
 import { Button } from './components/Button'
 import ImageSection from './components/ImageSection'
 import FeatureList from './components/FeatureList'
@@ -7,8 +8,30 @@ import FeatureList from './components/FeatureList'
 import mobileImg from './assets/mobile-img.svg'
 import desktopImg from './assets/desktop-img.svg'
 import HeaderSection from './components/HeaderSection'
+import { TickCircle } from 'iconsax-react'
 
 function App() {
+  const [showModal, setShowModal] = useState(false)
+
+  const [email, setEmail] = useState('')
+
+  const handleEmailValidated = () => {
+    setShowModal(true)
+  }
+
+  const handleFormSubmit = (ev) => {
+    ev.preventDefault()
+  }
+
+  const closeModal = () => {
+    setShowModal(false)
+    window.location.reload()
+  }
+
+  const handleEmailChange = (newEmail) => {
+    setEmail(newEmail)
+  }
+
   return (
     <div className="md:bg-background-color md:w-full h-screen flex md:items-center justify-center">
       <section className="md:grid grid-cols-2 gap-x-8 md:bg-primary  md:place-items-center h-[570px] md:p-8 md:rounded-[35px]">
@@ -20,11 +43,35 @@ function App() {
           <FeatureList />
 
           <form action="" className="flex flex-col gap-y-3 mb-8 md:mb-0">
-            <Input />
-            <Button />
+            <Input onEmailValidated={handleEmailValidated} onEmailChange={handleEmailChange} />
+            <Button text={'Receive Monthly Newsletter'} onClick={handleFormSubmit} />
           </form>
         </div>
       </section>
+      {showModal && (
+        <div
+          className="modal bg-white md:bg-primary w-full h-screen absolute
+         flex items-center justify-center"
+        >
+          <div
+            className="modal-content md:bg-primary md:p-12 w-[280px] px-4 xs:px-0 md:w-[400px] 
+            md:shadow-xl ms:rounded-[20px] flex flex-col gap-2"
+          >
+            <TickCircle variant="Broken" size={72} color="#204969" />
+            <h2
+              className="text-[32px] md:text-[46px] font-semibold
+             text-background-color"
+            ></h2>
+            <p className="text-[14px] md:text-[16px] text-gray-700 mb-4 md:w-[auto]">
+              A confirmation email has be sent to your{' '}
+              <strong className="text-background-color">{email}</strong> please open it and click
+              the button inside to comfirm your subscription
+            </p>
+
+            <Button text={'Dismiss message'} onClick={closeModal} />
+          </div>
+        </div>
+      )}
     </div>
   )
 }
