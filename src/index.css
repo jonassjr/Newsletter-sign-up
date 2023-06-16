@@ -3,3 +3,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@keyframes scaleAnimation {
+  0% {
+   transform: scale(0.5) translateY(10%);
+  }
+
+  100% {
+  transform: scale(1) translateY(0);
+  }
+}
+
+.animation {
+  animation: scaleAnimation 0.3s;
+}

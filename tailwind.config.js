@@ -12,7 +12,12 @@ export default {
         'secondary':'#27DEBF',
         'third-color':'#DADADA',
         'background-color': '#204969'
+      },
+
+      boxShadow: {
+        'custom-shadow':'0px 0px 15px 4px rgba(0, 0, 0, 0.15)'
       }
+
     },
     fontFamily: {
       poppins: ['Poppins', 'sans-serif'],
