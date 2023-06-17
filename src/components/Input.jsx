@@ -24,7 +24,7 @@ function Input({ onEmailValidated, onEmailChange }) {
   return (
     <>
       <div className="flex justify-between">
-        <label htmlFor="emai" className="text-[12px] md:text-[14px] text-black font-poppins">
+        <label htmlFor="email" className="text-[12px] md:text-[14px] text-black font-poppins">
           Email Address
         </label>
         {emailError && (
