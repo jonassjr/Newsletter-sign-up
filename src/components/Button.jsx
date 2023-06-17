@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 function Button({ onClick, text, type }) {
   return (
     <button
